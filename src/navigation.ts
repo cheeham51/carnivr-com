@@ -4,29 +4,29 @@ export const headerData = {
   links: [
     {
       text: 'Home',
-      href: getPermalink('/')
+      href: getPermalink('/'),
       // links: [
       //   {
       //     text: 'SaaS',
       //     href: getPermalink('/homes'),
       //   }
-        // {
-        //   text: 'Startup',
-        //   href: getPermalink('/homes/startup'),
-        // },
-        // {
-        //   text: 'Mobile App',
-        //   href: getPermalink('/homes/mobile-app'),
-        // },
-        // {
-        //   text: 'Personal',
-        //   href: getPermalink('/homes/personal'),
-        // },
+      // {
+      //   text: 'Startup',
+      //   href: getPermalink('/homes/startup'),
+      // },
+      // {
+      //   text: 'Mobile App',
+      //   href: getPermalink('/homes/mobile-app'),
+      // },
+      // {
+      //   text: 'Personal',
+      //   href: getPermalink('/homes/personal'),
+      // },
       // ],
     },
     {
       text: 'Blog',
-      href: getBlogPermalink()
+      href: getBlogPermalink(),
       // links: [
       //   {
       //     text: 'Blog List',
@@ -52,7 +52,7 @@ export const headerData = {
     },
     {
       text: 'About',
-      href: getPermalink('/about')
+      href: getPermalink('/about'),
       // links: [
       //   {
       //     text: 'Features (Anchor Link)',
@@ -122,11 +122,13 @@ export const headerData = {
     //   href: '#',
     // },
   ],
-  actions: [{
-    text: 'Start here',
-    href: getPermalink('/')
-    // target: '_blank'
-  }],
+  actions: [
+    {
+      text: 'Start here',
+      href: getPermalink('/'),
+      // target: '_blank'
+    },
+  ],
 };
 
 export const footerData = {
@@ -183,7 +185,7 @@ export const footerData = {
   socialLinks: [
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' }
+    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
     // { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
     // { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/arthelokyo/astrowind' },
   ],
