@@ -2,7 +2,8 @@
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+// Hidden section — re-enable this import along with its widget below:
+// import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
   title: 'Contact',
@@ -16,8 +17,11 @@ const metadata = {
 
   <ContactUs
     id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
+    title=""
+    subtitle=""
+    action="https://api.web3forms.com/submit"
+    accessKey={import.meta.env.PUBLIC_WEB3FORMS_KEY}
+    turnstileSiteKey={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY}
     inputs={[
       {
         type: 'text',
@@ -41,7 +45,7 @@ const metadata = {
   />
 
   <!-- Features2 Widget ************** -->
-
+  <!-- 
   <Features2
     title="We are here to help!"
     items={[
@@ -75,5 +79,5 @@ const metadata = {
         icon: 'tabler:map-pin',
       },
     ]}
-  />
+  /> -->
 </Layout>

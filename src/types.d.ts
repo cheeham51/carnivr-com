@@ -186,6 +186,9 @@ export interface Form {
   disclaimer?: Disclaimer;
   button?: string;
   description?: string;
+  action?: string;
+  accessKey?: string;
+  turnstileSiteKey?: string;
 }
 
 // WIDGETS

@@ -1,10 +1,11 @@
 ---
-import Features2 from '~/components/widgets/Features2.astro';
-import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Stats from '~/components/widgets/Stats.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
+// Hidden sections — re-enable these imports along with their widgets below:
+// import Features2 from '~/components/widgets/Features2.astro';
+// import Features3 from '~/components/widgets/Features3.astro';
+// import Stats from '~/components/widgets/Stats.astro';
 
 const metadata = {
   title: 'About us',
@@ -15,25 +16,49 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    tagline="About us"
+    tagline="About"
     image={{
       src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
+      alt: 'About Carnivr',
     }}
   >
     <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white"> Beautiful Website Templates</span>
+      What <span class="text-accent dark:text-white">Carnivr</span> is about
     </Fragment>
 
     <Fragment slot="subtitle">
-      Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec
-      quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus.
-      Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
+      Carnivr is a place to learn everything about the carnivore diet — the science, the practice, and the real-world
+      experiences — without prejudice or hype. We gather and explain the information clearly so you can make up your own
+      mind.
     </Fragment>
   </Hero>
 
-  <!-- Stats Widget ****************** -->
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    title="What we stand for"
+    subtitle="A few simple principles guide everything we publish."
+    items={[
+      {
+        title: 'Honest and balanced',
+        description:
+          'We present the evidence and the open questions as they are — the benefits, the trade-offs, and the things we still do not know.',
+      },
+      {
+        title: 'No prejudice, no hype',
+        description:
+          'We are not here to sell a lifestyle or dismiss one. We explain the carnivore diet fairly so you can decide for yourself.',
+      },
+      {
+        title: 'Clear and practical',
+        description:
+          'We keep things easy to understand and useful, whether you are just curious or ready to give it a try.',
+      },
+    ]}
+  />
+
+  {
+    /* Stats Widget — hidden for now
 
   <Stats
     title="Statistics about us"
@@ -122,32 +147,11 @@ const metadata = {
       alt: 'Colorful Image',
     }}
   />
+  */
+  }
 
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
-    items={[
-      {
-        title: 'Customer-centric approach',
-        description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
-      },
-      {
-        title: 'Constant Improvement',
-        description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
-      },
-      {
-        title: 'Ethical Practices',
-        description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-      },
-    ]}
-  />
-
-  <!-- Steps2 Widget ****************** -->
+  {
+    /* Achievements Steps2 Widget — hidden for now
 
   <Steps2
     title="Achievements"
@@ -225,4 +229,6 @@ const metadata = {
       },
     ]}
   />
+  */
+  }
 </Layout>
