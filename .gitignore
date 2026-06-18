@@ -2,6 +2,9 @@
 dist/
 .output/
 
+# blog posts are synced from S3 at build time (source of truth = articles bucket)
+src/data/post/
+
 # dependencies
 node_modules/
 

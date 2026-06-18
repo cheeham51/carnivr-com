@@ -7,8 +7,11 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "pull:posts": "{ [ -f .env ] && set -a && . ./.env && set +a; }; aws s3 sync s3://$ARTICLES_BUCKET/posts/ src/data/post/ --delete --exclude \"*\" --include \"*.md\" --include \"*.mdx\"",
+    "predev": "npm run pull:posts",
     "dev": "astro dev",
     "start": "astro dev",
+    "prebuild": "npm run pull:posts",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",

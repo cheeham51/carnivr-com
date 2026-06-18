@@ -11,6 +11,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js 22
@@ -18,10 +21,16 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ secrets.AWS_REGION }}
       - run: npm ci
       - run: npm run build
         env:
           PUBLIC_WEB3FORMS_KEY: ${{ vars.PUBLIC_WEB3FORMS_KEY }}
+          ARTICLES_BUCKET: ${{ secrets.ARTICLES_BUCKET }}
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
@@ -31,6 +40,9 @@ jobs:
 
   check:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js 22
@@ -38,7 +50,16 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ secrets.AWS_REGION }}
       - run: npm ci
+      - name: Pull posts from S3
+        run: npm run pull:posts
+        env:
+          ARTICLES_BUCKET: ${{ secrets.ARTICLES_BUCKET }}
       - run: npm run check
 
   deploy:
