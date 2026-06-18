@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch: # manual "Run workflow" button + agent-triggered publish (needs only Actions:write)
 
 jobs:
   build:
@@ -65,7 +66,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: [build, check]
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: >-
+      (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+      && github.ref == 'refs/heads/main'
     permissions:
       id-token: write
       contents: read
